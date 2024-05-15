@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #343a40; /* Navbar background color */
+        }
+        .navbar-brand {
+            color: #ffffff; /* Navbar brand color */
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-item .nav-link {
+            color: #ffffff; /* Navbar links color */
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #343a40; /* Heading color */
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Box shadow */
+            margin-top: 200px; /* Space between heading and form */
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 10px; /* Space between label and input */
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{% url 'adminhome' %}">Fashion</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'adminhome' %}">Admin Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'addcategory' %}">Add Category</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'addproducts' %}">Add Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'viewproducts' %}">View Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'viewusers' %}">View Users</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <form action="{% url 'addcategory1' %}" method="post">
+        {% csrf_token %}
+        <h1>Add Category</h1>
+        <label>Category Name:</label>
+        <input type="text" name="nm">
+        <button><a href="#">SAVE</a></button>
+    </form>
+    
+</body>
+</html>
